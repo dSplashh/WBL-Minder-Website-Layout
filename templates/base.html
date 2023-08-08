@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Base{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #F4F1FF;
+            padding: 10px;
+        }
+        .logo img {
+            max-width: 50px;
+            margin-right: 10px;
+        }
+        .title {
+            margin-right: auto;
+            font-size: 24px;
+            color: #3E4C87;
+        }
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .links a {
+            text-decoration: none;
+            color: #3E4C87;
+            margin: 0 10px;
+            padding: 5px 10px;
+        }
+        .menu-icon {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+                margin-left: auto;
+                margin-right: 20px;
+                cursor: pointer;
+            }
+            .links {
+                display: none;
+                flex-direction: column;
+                align-items: flex-end;
+                position: absolute;
+                top: 50px;
+                right: 0;
+                background-color: #F4F1FF;
+                padding: 10px;
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .links.show {
+                display: flex;
+            }
+            .links a {
+                margin: 5px 0;
+            }
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const links = document.querySelector('.links');
+            links.classList.toggle('show');
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://i.ibb.co/kxrS4bL/image.png" alt="Logo" class="logo">
+        </div>
+        <div class="title">
+            MINDER
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <img src="menu-icon.png" alt="Menu">
+        </div>
+        <div class="links">
+            <a href="{{ url_for('main_page') }}">Main Page</a>
+            <a href="{{ url_for('add_device') }}">Add-Device</a>
+            <a href="{{ url_for('download') }}">Download</a>
+            <a href="{{ url_for('update_info') }}">Update Info</a>
+            <a href="{{ url_for('contact_us') }}">Contact Us</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

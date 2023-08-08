@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <style>
+        body {
+            background-color: #F4F1FF; 
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Ensure full viewport height */
+            margin: 0;
+        }
+        .logo {
+            max-width: 280px;
+            margin-bottom: 50px;
+        }
+        h1 {
+            color: #3E4C87; 
+            margin: 0; 
+            font-size: 3vw;
+        }
+        p {
+            color: #666; 
+            margin: 10px 0; /* Add margin for spacing */
+        }
+        a {
+            text-decoration: none;
+            color: #6346CD; 
+        }
+    </style>
+</head>
+<body>
+    <img src="https://i.ibb.co/kxrS4bL/image.png" alt="Logo" class="logo">
+    <h1>WELCOME TO MINDER</h1>
+    <p>Click here to <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('login') }}">sign up</a>.</p>
+</body>
+</html>
